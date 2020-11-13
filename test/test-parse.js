@@ -111,6 +111,10 @@ describe("markdown", () => {
      same("one two\n\n---\n\nthree",
           doc(p("one two"), hr, p("three"))))
 
+  it("parses paragraphs with precedding whitespace", () =>
+     same("First line\n\n  Second line\n\nThird line",
+          doc(p("First line"), p("  Second line"), p("Third line"))))
+
   it("ignores HTML tags", () =>
      same("Foo < img> bar",
           doc(p("Foo < img> bar"))))
